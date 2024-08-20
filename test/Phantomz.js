@@ -72,14 +72,14 @@ describe('Token', () =>{
 		})
 
 		describe('Failure', () => {
-			it('rejects insuffcient balance' async () => {
+			it('rejects insuffcient balance' , async () => {
 				const invalidAmount = tokens(1000000000000)
-				await expect(token.connect(deployer).tranfer(receiver.address, invalidAmount)).to.be.reverted
+				await expect(token.connect(deployer).transfer(receiver.address, invalidAmount)).to.be.reverted
 			})
 
-			it('rejects invalid reciepient' async () => {
+			it('rejects invalid reciepient' , async () => {
 				const amount = tokens(100)
-				await expect(token.connect(deployer).tranfer('0x0000000000000000000000000000000000000000', amount)).to.be.reverted
+				await expect(token.connect(deployer).transfer('0x0000000000000000000000000000000000000000', amount)).to.be.reverted
 			})
 
 		})
